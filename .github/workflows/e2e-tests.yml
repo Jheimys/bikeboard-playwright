@@ -6,6 +6,10 @@ on:
         description: 'Browser to run tests on (chromium, firefox, webkit)'
         required: true
         default: 'chromium'
+      base_url:
+        description: 'Environment to run tests on (local, dev, staging, prod)'
+        required: true
+        default: 'http://localhost:3000'
  # push:
  #  branches: [ main, master ]
  # pull_request:
@@ -33,7 +37,7 @@ jobs:
 
 
     - name: Run E2E tests
-      run: npx playwright test --project=${{ github.event.inputs.browser }} 
+      run: BASE_URL=${{ github.event.inputs.base_url }} npx playwright test --project=${{ github.event.inputs.browser }} 
       #run: npx playwright test
 
     - uses: actions/upload-artifact@v5
