@@ -1,9 +1,9 @@
 name: E2E MULTI BROWSER TESTS
 on:
   push:
-    branches: [ main, master ]
+    branches: [ multi-browser ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ multi-browser ]
 jobs:
   tests-chromium:
     timeout-minutes: 60
